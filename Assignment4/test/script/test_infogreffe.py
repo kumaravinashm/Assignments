@@ -19,6 +19,18 @@ class Infogreffe_Stride(EnvironmentSetup):
     #validating title of the page
         self.assertIn(sheet['Home_Title'].values[0], self.driver.title)
     #Sending text and clicking search button
-        homepage = home_infogreffe(driver)
-        homepage.Search_Box("hi")
-        homepage.Search_Submit()
+        for x in range (sheet['search_element'].count()):
+            if (x>1):
+                self.driver.get(sheet['url'].values[0])
+            homepage = home_infogreffe(driver)
+            #homepage.Search_Box(sheet['search_element'].values[x])
+            homepage.Search_Submit()
+            search_table  = search_table(driver)
+            comp_name = search_table.get_company_Name()
+            print("Company Name: "+comp_name)
+            comp_address = search_table.get_Address()
+            print("Company Address: "+comp_address)
+            comp_siret = search_table.get_Siret()
+            print("Compony Siret: "+comp_siret)
+
+

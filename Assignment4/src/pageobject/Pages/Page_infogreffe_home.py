@@ -24,38 +24,25 @@ class home_infogreffe(object):
     def click_Search_button(self):
         self.Search_Submit.click()
 
-class home_texsie_exe(object):
-
+class search_table(object):
     def __init__(self, driver):
         self.driver = driver
+        self.comany_name = driver.find_element(By.CSS_SELECTOR, Locator.comany_name)
+        self.company_address = driver.find_element(By.XPATH, Locator.company_address)
+        self.company_siret = driver.find_element(By.XPATH, Locator.company_siret)
 
-        self.Average = driver.find_element(By.XPATH, Locator.Average)
-        self.Selected_Keyword = driver.find_element(By.XPATH, Locator.Selected_Keyword)
-        self.Positive_keyword = driver.find_element(By.XPATH, Locator.Positive_keyword)
-        self.Keyword_Extract = driver.find_element(By.XPATH, Locator.Keyword_Extract)
-
-    def get_Average(self):
-        average = self.Average.text
-        return average
-
-    def get_selected_keyword(self):
-        str_Selected_Key = self.Selected_Keyword.text
-        return str_Selected_Key
-
-    def get_Positive_keyword(self):
-        str_pos_key = self.Positive_keyword.text
-        return str_pos_key
-
-    def click_Positive_keyword(self):
-        self.Positive_keyword.click()
-
-    def get_Keyword_Extract(self):
-        str_Key_Extract = self.Keyword_Extract.text
-        return str_Key_Extract
+    def get_company_Name(self):
+        comany_name = self.comany_name.text
+        return comany_name
 
 
+    def get_Address(self):
+        company_address = self.company_address.text
+        return  company_address
 
-
+    def get_Siret(self):
+        company_siret = self.company_siret.text
+        return  company_siret
 
 
 
